@@ -13,11 +13,11 @@ class App extends Component {
       <div className="a0-main">
         <Navbar />
         <Router >
-        <div>
-        <Route exact path="/" component={StartPage} />
-        <Route path="/music" component={MusicResults} />
-        <Route path="/video" component={VideoResults} />
-        </div>
+          <div className="h-100">
+            <Route exact path="/" component={StartPage} />
+            <Route path="/music" component={MusicResults} />
+            <Route path="/video" component={VideoResults} />
+          </div>
         </Router>
       </div>
     );

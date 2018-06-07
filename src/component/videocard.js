@@ -15,7 +15,6 @@ class VideoCard extends Component {
     
 
     playvideo(){
-
         console.log(this.props.video);
     }
 

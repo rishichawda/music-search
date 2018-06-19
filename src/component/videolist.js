@@ -35,10 +35,10 @@ class VideoList extends Component {
     }
 
     render() {
-        if (this.props.video_list[0]){
+        if (this.props.videolist[0]){
             return (
                 <div style={list_style}>
-                    {this.generate_cards(this.props.video_list[0].items)}
+                    {this.generate_cards(this.props.videolist[0].items)}
                 </div>
             );
         } else {
@@ -54,8 +54,8 @@ function mapDispatchToProps(dispatch) {
     return bindActionCreators({fetch_videos},dispatch);
  }
 
- function mapStateToProps({video_list}){
-    return ({video_list});
+ function mapStateToProps({videolist}){
+    return ({videolist});
   }
 
 export default connect(mapStateToProps,mapDispatchToProps)(VideoList);

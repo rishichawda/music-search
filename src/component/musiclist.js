@@ -11,20 +11,18 @@ const list_style = {
 };
 
 
-class MusicList extends Component {
-    render() {
-        return (
-            <div style={list_style}>
-                        <MusicCard />
-                        <MusicCard />
-                        <MusicCard />
-                        <MusicCard />
-                        <MusicCard />
-                        <MusicCard />
-                        <MusicCard />
-            </div>
-        );
-    }
+const MusicList = () => {
+    return (
+        <div style={list_style}>
+                    <MusicCard />
+                    <MusicCard />
+                    <MusicCard />
+                    <MusicCard />
+                    <MusicCard />
+                    <MusicCard />
+                    <MusicCard />
+        </div>
+    );
 }
 
 export default MusicList;

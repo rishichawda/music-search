@@ -4,6 +4,7 @@ import {key, part} from './config';
 const baseurl = 'https://www.googleapis.com/youtube/v3/search?';
 
 export const vldata = 'video_list';
+export const vurl = 'video_url';
 
 export function fetch_videos (query=-1) { 
     if(query===-1){
@@ -15,3 +16,10 @@ export function fetch_videos (query=-1) {
         }
     }
  }
+
+ export function get_video_from_url (video_url) { 
+     return {
+         type: vurl,
+         payload: video_url
+     }
+  }

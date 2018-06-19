@@ -14,17 +14,15 @@ const searchbarstyle = {
         border: '0px'
     };
 
-class Navbar extends Component {
-    render() {
-        return (
-            <nav className="navbar navbar-light bg-warning">
-                <a className="navbar-brand" href="">Music Hunt</a>
-                <form onSubmit={this.handleSubmit} style={{width: '16%'}} className="form-inline">
-                    <input className="w-100" type="text" placeholder="Type your query here!" style={searchbarstyle}/>
-                </form>
-            </nav>
-        );
-    }
+const Navbar = () => {
+    return (
+        <nav className="navbar navbar-light bg-warning">
+            <a className="navbar-brand" href="">Music Hunt</a>
+            <form onSubmit={this.handleSubmit} style={{width: '16%'}} className="form-inline">
+                <input className="w-100" type="text" placeholder="Type your query here!" style={searchbarstyle}/>
+            </form>
+        </nav>
+    );
 }
 
 export default Navbar;

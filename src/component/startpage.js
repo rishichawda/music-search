@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import VideoList from './videolist';
-import MusicList from './musiclist';
+import Loadable from 'react-loadable';
 
 import image from '../assets/pexels-photo-164879.jpeg';
 
@@ -48,22 +47,44 @@ const Intro = (props) => {
     );
 }
 
+const ListContainer = (props) => {
+    return (
+        <div className="container-fluid h-50 mt-2 p-3">
+                <span style={list_info_style} className="row bg-secondary">
+                <p className="navbar-brand pl-2 text-white">{ props.title }</p>
+                </span>
+                 { props.children }
+            </div>
+    )
+}
+
+const LoadingDiv = (props) => {
+    return (
+        <div className="container bg-light h-50 w-100 p-2">
+        <p className="lead">Fetching {props.type}</p>
+        </div>
+    )
+}
+
+const LoadableVideoListComponent = Loadable({
+    loader: () => import('./videolist'),
+    loading: () => { return <LoadingDiv type='Videos'/> },
+  });
+
+const LoadableMusicListComponent = Loadable({
+    loader: () => import('./musiclist'),
+    loading: () => { return <LoadingDiv type='Music'/> },
+  });
 
 const MainTab = () => {
     return (
         <div className="p-2">
-            <div className="container-fluid h-50 mt-2 p-3">
-                <span style={list_info_style} className="row bg-secondary">
-                <p className="navbar-brand pl-2 text-white">Suggested Music</p>
-                </span>
-                <MusicList />
-            </div>
-            <div className="container-fluid h-50 mt-2 p-3">
-                <span style={list_info_style} className="row bg-secondary">
-                <p className="navbar-brand pl-2 text-white">Trending Videos</p>
-                </span>
-                <VideoList />
-            </div>
+            <ListContainer title="Suggested Music">
+                <LoadableMusicListComponent />
+            </ListContainer>
+            <ListContainer title="Trending Videos">
+                <LoadableVideoListComponent />
+            </ListContainer>
         </div>
     );
 }
